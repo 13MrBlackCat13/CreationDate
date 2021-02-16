@@ -11,7 +11,7 @@ module.exports = (_ => {
 		"info": {
 			"name": "CreationDate",
 			"author": "mimiseksimi",
-			"version": "1.5.4",
+			"version": "1.5.5",
 			"description": "Отображение даты создания учетной записи в профиле"
 		},
 		"changeLog": {
@@ -54,7 +54,7 @@ module.exports = (_ => {
 		stop () {}
 		getSettingsPanel () {
 			let template = document.createElement("template");
-			template.innerHTML = `<div style="color: var(--header-primary); font-size: 16px; font-weight: 300; white-space: pre; line-height: 22px;">The Library Plugin needed for ${config.info.name} is missing.\nPlease click <a style="font-weight: 500;">Download Now</a> to install it.</div>`;
+			template.innerHTML = `<div style="color: var(--header-primary); font-size: 16px; font-weight: 300; white-space: pre; line-height: 22px;">Плагин библиотеки, необходимый для ${config.info.name} пропал, отсутствует.\nПожалуйста, нажмите <a style="font-weight: 500;">Download Now</a> to install it.</div>`;
 			template.content.firstElementChild.querySelector("a").addEventListener("click", this.downloadLibrary);
 			return template.content.firstElementChild;
 		}
@@ -66,23 +66,23 @@ module.exports = (_ => {
 			onLoad () {
 				this.defaults = {
 					settings: {
-						addInUserPopout:		{value: true, 			description: "Add in User Popouts"},
-						addInUserProfil:		{value: true, 			description: "Add in User Profile Modal"},
-						displayText:			{value: true, 			description: "Display 'Created on' text in the timestamp"},
-						displayTime:			{value: true, 			description: "Display the time in the timestamp"},
-						displayDate:			{value: true, 			description: "Display the date in the timestamp"},
-						cutSeconds:				{value: false, 			description: "Cut off seconds of the time"},
-						forceZeros:				{value: false, 			description: "Force leading zeros"},
-						otherOrder:				{value: false, 			description: "Show the time before the date"}
+						addInUserPopout:		{value: true, 			description: "Добавить в всплывающие окна пользователя"},
+						addInUserProfil:		{value: true, 			description: "Добавить в модальный профиль пользователя"},
+						displayText:			{value: true, 			description: "Отображать текст «Создано» в метке времени"},
+						displayTime:			{value: true, 			description: "Отображение времени в метке времени"},
+						displayDate:			{value: true, 			description: "Отображение даты в метке времени"},
+						cutSeconds:				{value: false, 			description: "Отрежьте секунды времени"},
+						forceZeros:				{value: false, 			description: "Заставить начальные нули"},
+						otherOrder:				{value: false, 			description: "Показывать время до даты"}
 					},
 					choices: {
-						creationDateLang:		{value: "$discord", 		description: "Creation Date Format"}
+						creationDateLang:		{value: "$discord", 		description: "Формат даты создания"}
 					},
 					formats: {
-						ownFormat:				{value: "$hour: $minute: $second, $day.$month.$year", 	description: "Own Format"}
+						ownFormat:				{value: "$hour: $minute: $second, $day.$month.$year", 	description: "Собственный формат"}
 					},
 					amounts: {
-						maxDaysAgo:				{value: 0, 	min: 0,		description: "Maximum count of days displayed in the $daysago placeholder",	note: "0 equals no limit"}
+						maxDaysAgo:				{value: 0, 	min: 0,		description: "Максимальное количество дней, отображаемое в $daysago заполнитель",	note: "0 означает без ограничений"}
 					}
 				};
 				
