@@ -11,7 +11,7 @@ module.exports = (_ => {
 		"info": {
 			"name": "CreationDate",
 			"author": "mimiseksimi",
-			"version": "1.5.2",
+			"version": "1.5.4",
 			"description": "Отображение даты создания учетной записи в профиле"
 		},
 		"changeLog": {
@@ -28,9 +28,9 @@ module.exports = (_ => {
 		getDescription () {return `The Library Plugin needed for ${config.info.name} is missing. Open the Plugin Settings to download it. \n\n${config.info.description}`;}
 		
 		downloadLibrary () {
-			require("request").get("https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js", (e, r, b) => {
+			require("request").get("", (e, r, b) => {
 				if (!e && b && b.indexOf(`* @name BDFDB`) > -1) require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0BDFDB.plugin.js"), b, _ => BdApi.showToast("Finished downloading BDFDB Library", {type: "success"}));
-				else BdApi.alert("Error", "Could not download BDFDB Library Plugin, try again later or download it manually from GitHub: https://github.com/mwittrien/BetterDiscordAddons/tree/master/Library/");
+				else BdApi.alert("Error", "Не удалось загрузить подключаемый модуль библиотеки BDFDB, повторите попытку позже или загрузите его вручную с GitHub: https://github.com/13MrBlackCat13/CreationDate");
 			});
 		}
 		
